@@ -1,0 +1,120 @@
+{
+  "id": "fixture-run-phase0",
+  "createdAt": "2026-05-20T07:30:00.000Z",
+  "status": "complete",
+  "resume": {
+    "contact": {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    },
+    "summary": "Software engineer focused on web apps and APIs.",
+    "skills": ["TypeScript", "React", "Node.js", "PostgreSQL"],
+    "experience": [
+      {
+        "company": "Acme Corp",
+        "title": "Software Engineer",
+        "startDate": "2022-01",
+        "endDate": "Present",
+        "bullets": [
+          "Shipped customer-facing features using React and TypeScript.",
+          "Improved API latency by optimizing database queries."
+        ]
+      }
+    ],
+    "projects": [],
+    "education": [
+      {
+        "school": "State University",
+        "degree": "B.S.",
+        "field": "Computer Science",
+        "startDate": "2018",
+        "endDate": "2022"
+      }
+    ],
+    "certifications": []
+  },
+  "jobDescription": {
+    "jobTitle": "Software Engineer",
+    "company": "Example Co",
+    "requiredSkills": ["TypeScript", "Node.js", "PostgreSQL"],
+    "preferredSkills": ["React"],
+    "responsibilities": [
+      "Implement and maintain backend services and integrations",
+      "Participate in code reviews and on-call rotations"
+    ],
+    "qualifications": ["3+ years of professional software development experience"],
+    "tools": ["PostgreSQL"],
+    "keywords": ["REST", "API", "TypeScript"],
+    "seniorityLevel": "mid",
+    "domainSignals": ["SaaS"]
+  },
+  "originalMatch": {
+    "overallScore": 72,
+    "skillCoverageScore": 80,
+    "responsibilityAlignmentScore": 70,
+    "keywordScore": 65,
+    "seniorityScore": 75,
+    "criticalMissingRequirements": ["On-call experience not evidenced"],
+    "explanation": "Strong alignment on TypeScript and Node.js; some JD keywords are only weakly represented.",
+    "evidence": [
+      {
+        "kind": "skill",
+        "ref": "TypeScript",
+        "note": "Listed in resume skills and used in experience bullets."
+      }
+    ]
+  },
+  "tailoredMatch": {
+    "overallScore": 81,
+    "skillCoverageScore": 85,
+    "responsibilityAlignmentScore": 78,
+    "keywordScore": 80,
+    "seniorityScore": 78,
+    "criticalMissingRequirements": ["On-call experience not evidenced"],
+    "explanation": "Tailored bullets surface REST/API language where truthful; remaining gap is on-call."
+  },
+  "tailoredResume": {
+    "tailoredSummary": "Software engineer with experience shipping TypeScript/React features and optimizing Node.js APIs backed by PostgreSQL.",
+    "tailoredSkills": [
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "React",
+      "REST APIs"
+    ],
+    "tailoredExperience": [
+      {
+        "company": "Acme Corp",
+        "title": "Software Engineer",
+        "startDate": "2022-01",
+        "endDate": "Present",
+        "bullets": [
+          {
+            "original": "Shipped customer-facing features using React and TypeScript.",
+            "tailored": "Delivered customer-facing features with React and TypeScript, partnering with stakeholders on incremental releases.",
+            "changeReason": "Surface stakeholder collaboration language from the JD without changing facts.",
+            "keywordsAddressed": ["stakeholders", "incremental"],
+            "confidence": "high"
+          },
+          {
+            "original": "Improved API latency by optimizing database queries.",
+            "tailored": "Reduced API latency by optimizing PostgreSQL queries and request handling paths.",
+            "changeReason": "Name the database explicitly where supported by resume context.",
+            "keywordsAddressed": ["PostgreSQL", "API"],
+            "confidence": "high"
+          }
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "name": "On-call / operations experience",
+      "importance": "medium",
+      "jdEvidence": "Participate in code reviews and on-call rotations",
+      "resumeEvidence": "",
+      "suggestedAction": "interview_prep",
+      "canSafelyAdd": false
+    }
+  ]
+}

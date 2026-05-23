@@ -1,0 +1,186 @@
+{
+  "status": "complete",
+  "resume": {
+    "contact": {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "phone": "+1-555-0100",
+      "location": "San Francisco, CA"
+    },
+    "summary": "Software engineer focused on web apps and APIs.",
+    "skills": ["TypeScript", "React", "Node.js", "PostgreSQL", "REST APIs"],
+    "experience": [
+      {
+        "company": "Acme Corp",
+        "title": "Software Engineer",
+        "startDate": "2022-01",
+        "endDate": "Present",
+        "bullets": [
+          "Shipped customer-facing features using React and TypeScript.",
+          "Improved API latency by optimizing database queries.",
+          "Collaborated with product on roadmap planning for quarterly releases."
+        ]
+      },
+      {
+        "company": "Startup Labs",
+        "title": "Junior Developer",
+        "startDate": "2020-06",
+        "endDate": "2021-12",
+        "bullets": [
+          "Built internal tooling scripts in Node.js for data migration tasks."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Open Metrics Dashboard",
+        "description": "Side project for visualizing application metrics.",
+        "bullets": ["Implemented charts and export using React."],
+        "technologies": ["React", "TypeScript"]
+      }
+    ],
+    "education": [
+      {
+        "school": "State University",
+        "degree": "B.S.",
+        "field": "Computer Science",
+        "startDate": "2018",
+        "endDate": "2022"
+      }
+    ],
+    "certifications": []
+  },
+  "jobDescription": {
+    "jobTitle": "Software Engineer",
+    "company": "Example Co",
+    "requiredSkills": ["TypeScript", "Node.js", "PostgreSQL", "REST API design"],
+    "preferredSkills": ["React", "Observability", "Docker"],
+    "responsibilities": [
+      "Implement and maintain backend services and integrations",
+      "Participate in code reviews and on-call rotations",
+      "Partner with stakeholders to clarify requirements",
+      "Improve reliability and performance of production systems"
+    ],
+    "qualifications": ["3+ years of professional software development experience"],
+    "tools": ["PostgreSQL", "Git", "CI/CD"],
+    "keywords": ["REST", "API", "TypeScript", "microservices", "testing"],
+    "seniorityLevel": "mid",
+    "domainSignals": ["SaaS", "B2B"]
+  },
+  "originalMatch": {
+    "overallScore": 68,
+    "skillCoverageScore": 75,
+    "responsibilityAlignmentScore": 62,
+    "keywordScore": 58,
+    "seniorityScore": 72,
+    "criticalMissingRequirements": [
+      "On-call / operations experience not evidenced",
+      "Observability tooling not mentioned"
+    ],
+    "explanation": "Your resume covers 3/4 required skills and aligns with 2 core responsibilities. Seniority reads as mid. Biggest gaps: on-call, observability. Keyword overlap with the JD is moderate."
+  },
+  "tailoredMatch": {
+    "overallScore": 79,
+    "skillCoverageScore": 82,
+    "responsibilityAlignmentScore": 76,
+    "keywordScore": 74,
+    "seniorityScore": 75,
+    "criticalMissingRequirements": [
+      "On-call / operations experience not evidenced",
+      "Observability tooling not mentioned"
+    ],
+    "explanation": "Tailored bullets surface REST/API and stakeholder language where truthful. Remaining gaps should not be invented."
+  },
+  "tailoredResume": {
+    "tailoredSummary": "Software engineer with experience shipping TypeScript/React features, optimizing Node.js APIs backed by PostgreSQL, and partnering with product on incremental delivery.",
+    "tailoredSkills": [
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "REST APIs",
+      "React",
+      "Git"
+    ],
+    "tailoredExperience": [
+      {
+        "company": "Acme Corp",
+        "title": "Software Engineer",
+        "startDate": "2022-01",
+        "endDate": "Present",
+        "bullets": [
+          {
+            "original": "Shipped customer-facing features using React and TypeScript.",
+            "tailored": "Delivered customer-facing features with React and TypeScript, partnering with stakeholders on incremental releases aligned to roadmap priorities.",
+            "changeReason": "Surface stakeholder collaboration language from the JD without changing facts.",
+            "keywordsAddressed": ["stakeholders", "incremental"],
+            "confidence": "high"
+          },
+          {
+            "original": "Improved API latency by optimizing database queries.",
+            "tailored": "Reduced API latency by optimizing PostgreSQL queries and REST request handling paths, improving production performance.",
+            "changeReason": "Name the database and REST context explicitly where supported by resume evidence.",
+            "keywordsAddressed": ["PostgreSQL", "API", "performance"],
+            "confidence": "high"
+          },
+          {
+            "original": "Collaborated with product on roadmap planning for quarterly releases.",
+            "tailored": "Partnered with product stakeholders to clarify requirements and plan quarterly releases with measurable delivery milestones.",
+            "changeReason": "Align phrasing with JD responsibility language while preserving scope.",
+            "keywordsAddressed": ["stakeholders", "requirements"],
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "company": "Startup Labs",
+        "title": "Junior Developer",
+        "startDate": "2020-06",
+        "endDate": "2021-12",
+        "bullets": [
+          {
+            "original": "Built internal tooling scripts in Node.js for data migration tasks.",
+            "tailored": "Built Node.js internal tooling to support data migration and integration workflows with testable scripts.",
+            "changeReason": "Emphasize integrations/testing keywords where the original work supports it.",
+            "keywordsAddressed": ["Node.js", "integrations", "testing"],
+            "confidence": "medium",
+            "riskFlag": "Integration scope inferred from migration context — verify before use."
+          }
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "name": "On-call / operations experience",
+      "importance": "high",
+      "jdEvidence": "Participate in code reviews and on-call rotations",
+      "resumeEvidence": "",
+      "suggestedAction": "interview_prep",
+      "canSafelyAdd": false
+    },
+    {
+      "name": "Observability tooling",
+      "importance": "medium",
+      "jdEvidence": "Experience with observability tools (logging, metrics, tracing)",
+      "resumeEvidence": "",
+      "suggestedAction": "add_if_true",
+      "canSafelyAdd": false
+    },
+    {
+      "name": "Docker / containerization",
+      "importance": "low",
+      "jdEvidence": "Nice to have: Docker",
+      "resumeEvidence": "",
+      "suggestedAction": "leave_out",
+      "canSafelyAdd": false
+    },
+    {
+      "name": "Microservices architecture",
+      "importance": "medium",
+      "jdEvidence": "Keywords: microservices",
+      "resumeEvidence": "API and backend work implied but microservices not stated",
+      "suggestedAction": "mention_in_skills",
+      "canSafelyAdd": false
+    }
+  ]
+}

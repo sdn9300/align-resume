@@ -1,0 +1,21 @@
+Software Engineer — Backend & APIs
+
+About the role
+We are looking for a mid-level software engineer to design, build, and operate
+backend services. You will work with TypeScript and Node.js, collaborate with
+product and frontend teams, and help improve reliability and performance.
+
+Requirements
+- 3+ years of professional software development experience
+- Strong TypeScript and Node.js
+- Experience with relational databases (PostgreSQL preferred)
+- Familiarity with REST API design and testing
+
+Nice to have
+- React experience for occasional full-stack work
+- Experience with observability tools (logging, metrics, tracing)
+
+Responsibilities
+- Implement and maintain backend services and integrations
+- Participate in code reviews and on-call rotations
+- Partner with stakeholders to clarify requirements and deliver incrementally

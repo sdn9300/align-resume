@@ -1,0 +1,17 @@
+Jane Doe
+jane.doe@example.com | +1-555-0100 | San Francisco, CA
+linkedin.com/in/janedoe
+
+SUMMARY
+Software engineer with experience building web applications and APIs.
+
+SKILLS
+TypeScript, React, Node.js, PostgreSQL
+
+EXPERIENCE
+Acme Corp — Software Engineer | 2022-01 — Present
+- Shipped customer-facing features using React and TypeScript.
+- Improved API latency by optimizing database queries.
+
+EDUCATION
+State University — B.S. Computer Science | 2018 — 2022
