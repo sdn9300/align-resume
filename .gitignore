@@ -44,3 +44,6 @@ yarn-error.log*
 
 # Qoder internal knowledge base
 .qoder/
+
+# Vercel deployment temp files
+.vercel-tmp/

@@ -24,14 +24,6 @@ function extractSchoolNames(resume: ResumeProfile): Set<string> {
   return names;
 }
 
-function extractCertNames(resume: ResumeProfile): Set<string> {
-  const names = new Set<string>();
-  for (const entry of resume.certifications) {
-    if (entry.name) names.add(entry.name.toLowerCase().trim());
-  }
-  return names;
-}
-
 function extractAllOriginalText(resume: ResumeProfile): string {
   const parts: string[] = [resume.summary, ...resume.skills];
   for (const exp of resume.experience) {
@@ -83,7 +75,7 @@ export function validateTailoredResume(
   }
 
   // 4.1.2 — Check for new certifications in tailored output
-  const originalCerts = extractCertNames(original);
+  // Currently skipped — TailoredResume doesn't list certs separately
   // TailoredResume doesn't list certs separately — they're in original only
 
   // 4.1.3 — Check for new metrics in bullets
