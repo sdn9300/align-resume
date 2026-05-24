@@ -32,7 +32,7 @@ function getClientIp(request: NextRequest): string {
   return request.headers.get("x-real-ip") ?? "127.0.0.1";
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Only rate-limit the pipeline execution endpoint
   if (
     request.method !== "POST" ||
@@ -60,7 +60,7 @@ export function middleware(request: NextRequest) {
         error: {
           code: "RATE_LIMIT",
           message: `Too many requests. Try again in ${retryAfterSec}s.`,
-          stage: "middleware",
+          stage: "proxy",
         },
       },
       {
