@@ -20,7 +20,7 @@ export default function Home() {
         <li className="rounded-lg border border-border/80 bg-white p-4">Explainable match scores (before & after)</li>
         <li className="rounded-lg border border-border/80 bg-white p-4">Gap analysis with honest suggested actions</li>
         <li className="rounded-lg border border-border/80 bg-white p-4">Side-by-side bullet review with metadata</li>
-        <li className="rounded-lg border border-border/80 bg-white p-4">Print-ready comparison layout (PDF in Phase 3)</li>
+        <li className="rounded-lg border border-border/80 bg-white p-4">Print-ready comparison layout + PDF downloads</li>
       </ul>
 
       <div className="flex flex-wrap gap-3">
@@ -28,7 +28,7 @@ export default function Home() {
           <Link href="/tailor">Start tailoring</Link>
         </Button>
         <Button asChild variant="outline" size="lg">
-          <Link href="/tailor">Try with sample data</Link>
+          <Link href="/tailor?demo=1">Try with sample data</Link>
         </Button>
       </div>
     </main>

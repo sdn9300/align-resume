@@ -45,14 +45,39 @@ export function generateRunId(): string {
 
 // ---------------------------------------------------------------------------
 // Server-side in-memory store (API routes)
+// Runs expire after 24 hours. Cleanup runs every 30 minutes.
 // ---------------------------------------------------------------------------
 
-const serverRuns = new Map<string, TailoringRun>();
+const SERVER_RUN_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+const serverRuns = new Map<string, { run: TailoringRun; storedAt: number }>();
+
+// Periodic cleanup of expired runs
+if (typeof setInterval !== "undefined") {
+  setInterval(() => {
+    const cutoff = Date.now() - SERVER_RUN_TTL_MS;
+    for (const [id, entry] of serverRuns) {
+      if (entry.storedAt < cutoff) serverRuns.delete(id);
+    }
+  }, 30 * 60 * 1000);
+}
 
 export function storeServerRun(run: TailoringRun): void {
-  serverRuns.set(run.id, run);
+  serverRuns.set(run.id, { run, storedAt: Date.now() });
 }
 
 export function getServerRun(runId: string): TailoringRun | undefined {
-  return serverRuns.get(runId);
+  const entry = serverRuns.get(runId);
+  if (!entry) return undefined;
+
+  // Check TTL on read
+  if (Date.now() - entry.storedAt > SERVER_RUN_TTL_MS) {
+    serverRuns.delete(runId);
+    return undefined;
+  }
+
+  return entry.run;
+}
+
+export function getTTL(): number {
+  return SERVER_RUN_TTL_MS;
 }

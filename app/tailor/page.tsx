@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { JDInput } from "@/components/JDInput";
@@ -26,11 +26,26 @@ const STAGE_DURATIONS = {
 
 export default function TailorInputPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [resumeText, setResumeText] = useState("");
   const [jdText, setJdText] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [currentStage, setCurrentStage] = useState<Stage | null>(null);
+
+  // Auto-load sample data if ?demo=1
+  useEffect(() => {
+    if (searchParams.get("demo") !== "1") return;
+    async function loadSamples() {
+      const [resumeResp, jdResp] = await Promise.all([
+        fetch("/fixtures/sample-resume.txt"),
+        fetch("/fixtures/sample-jd.txt"),
+      ]);
+      setResumeText(await resumeResp.text());
+      setJdText(await jdResp.text());
+    }
+    void loadSamples();
+  }, [searchParams]);
 
   const canSubmit =
     resumeText.trim().length >= MIN_RESUME && jdText.trim().length >= MIN_JD && !submitting;
