@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+  <!-- Background circle -->
+  <circle cx="22" cy="22" r="20" fill="url(#goldGradient)" />
+  <!-- Crosshair rings (alignment motif) -->
+  <circle cx="22" cy="22" r="14" stroke="white" stroke-width="1.2" fill="none" opacity="0.3" />
+  <circle cx="22" cy="22" r="9" stroke="white" stroke-width="1" fill="none" opacity="0.5" />
+  <!-- Stylized letter A -->
+  <path d="M15 30L20.5 14h3L29 30h-3.3l-1.4-4H19.7l-1.4 4H15zm5.6-6.5h2.8L22 17l-1.4 6.5z" fill="white" />
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CBB06D" />
+      <stop offset="1" stop-color="#A37F33" />
+    </linearGradient>
+  </defs>
+</svg>

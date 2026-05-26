@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -11,16 +12,25 @@ export function TailorShell({ children }: { children: React.ReactNode }) {
   const runId = runIdMatch?.[1];
 
   return (
-    <div className="min-h-screen">
-      <header className="border-b border-border/60 bg-white/70 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6">
+    <div className="min-h-screen bg-[#FAF8F5]">
+      <header className="border-b border-[#E6DFD3]/50 bg-white/70 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-3 sm:px-6">
           <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="text-lg font-semibold tracking-tight text-primary">
-              AlignResume
+            <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
+              <Image
+                src="/logo.svg"
+                alt="AlignResume"
+                width={28}
+                height={28}
+                className="drop-shadow-sm"
+              />
+              <span className="text-base font-bold tracking-tight text-[#4A3E3D]">
+                Align<span className="font-semibold text-[#5C4E43]">Resume</span>
+              </span>
             </Link>
             <Link
               href="/tailor"
-              className="rounded-full border border-border/60 px-4 py-1.5 text-sm text-muted-foreground transition-all hover:border-primary/30 hover:text-foreground"
+              className="rounded-full border border-[#E6DFD3] px-4 py-1.5 text-sm text-[#6B6560] transition-all hover:border-[#CBB06D]/40 hover:text-[#4A3E3D]"
             >
               New analysis
             </Link>
