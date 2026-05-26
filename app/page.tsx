@@ -6,12 +6,20 @@ export default function Home() {
   return (
     <>
       <main id="main-content" className="relative mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-center gap-12 px-6 py-20">
-        <div className="space-y-5 text-center">
-          <p className="inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium tracking-wide text-primary">
-            AI-powered resume tailoring
-          </p>
-          <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
-            Truthful resume tailoring{" "}
+        <div className="space-y-6 text-center">
+          <div className="mb-2 inline-flex items-center gap-3 rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/10 to-primary/5 px-5 py-2">
+            <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-[10px] font-bold text-primary-foreground shadow-sm shadow-primary/20">
+              A
+            </span>
+            <span className="text-sm font-semibold tracking-wide text-primary">
+              AlignResume
+            </span>
+          </div>
+          <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+              Truthful resume tailoring
+            </span>
+            <br />
             <span className="text-primary">for every job description</span>
           </h1>
           <p className="mx-auto max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground">
