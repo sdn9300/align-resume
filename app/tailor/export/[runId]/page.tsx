@@ -74,6 +74,7 @@ export default function ExportPage() {
   const { run, loading, error } = useTailoringRun(runId);
   const [downloading, setDownloading] = useState(false);
   const [disclaimerChecked, setDisclaimerChecked] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
 
   const unconfirmedRiskyBullets = run ? findUnconfirmedRiskyBullets(run) : [];
 
@@ -86,13 +87,25 @@ export default function ExportPage() {
     return response;
   }
 
-  const handleDownload = async (type: "comparison" | "tailoredResume") => {
+  const openPrintPage = (path: string) => {
+    setPdfError(null);
+    window.open(path, "_blank");
+  };
+
+  const handleServerPdf = async (type: "comparison" | "tailoredResume") => {
     setDownloading(true);
+    setPdfError(null);
     try {
       const response = await fetchExport();
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
-        throw new Error(err?.error?.message ?? "Failed to generate PDFs");
+        const msg = err?.error?.message ?? "Failed to generate PDFs";
+        // If PDF generation is unavailable, guide to print preview instead
+        if (err?.error?.code === "PDF_GENERATION_UNAVAILABLE") {
+          openPrintPage(`/export/${runId}?print=true`);
+          return;
+        }
+        throw new Error(msg);
       }
       const data: { comparison: string; tailoredResume: string } = await response.json();
 
@@ -102,25 +115,31 @@ export default function ExportPage() {
         downloadBase64Pdf(data.tailoredResume, `tailored-resume-${runId}.pdf`);
       }
     } catch (e) {
-      alert(e instanceof Error ? e.message : "PDF generation failed. Try using the print preview instead.");
+      setPdfError(e instanceof Error ? e.message : "PDF generation failed. Use the print preview buttons below.");
     } finally {
       setDownloading(false);
     }
   };
 
-  const handleDownloadBoth = async () => {
+  const handleServerPdfBoth = async () => {
     setDownloading(true);
+    setPdfError(null);
     try {
       const response = await fetchExport();
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
-        throw new Error(err?.error?.message ?? "Failed to generate PDFs");
+        const msg = err?.error?.message ?? "Failed to generate PDFs";
+        if (err?.error?.code === "PDF_GENERATION_UNAVAILABLE") {
+          openPrintPage(`/export/${runId}?print=true`);
+          return;
+        }
+        throw new Error(msg);
       }
       const data: { comparison: string; tailoredResume: string } = await response.json();
       downloadBase64Pdf(data.comparison, `comparison-${runId}.pdf`);
       downloadBase64Pdf(data.tailoredResume, `tailored-resume-${runId}.pdf`);
     } catch (e) {
-      alert(e instanceof Error ? e.message : "PDF generation failed. Try using the print preview instead.");
+      setPdfError(e instanceof Error ? e.message : "PDF generation failed. Use the print preview buttons below.");
     } finally {
       setDownloading(false);
     }
@@ -210,25 +229,25 @@ export default function ExportPage() {
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Download PDFs</CardTitle>
-          <CardDescription>Server-generated PDFs via Playwright.</CardDescription>
+          <CardDescription>Tries server-side generation (Playwright) — falls back to browser print preview.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-3">
           <Button
-            onClick={() => void handleDownloadBoth()}
+            onClick={() => void handleServerPdfBoth()}
             disabled={exportDisabled}
           >
             {downloading ? "Generating…" : "Download both PDFs"}
           </Button>
           <Button
             variant="outline"
-            onClick={() => void handleDownload("comparison")}
+            onClick={() => void handleServerPdf("comparison")}
             disabled={exportDisabled}
           >
             Comparison only
           </Button>
           <Button
             variant="outline"
-            onClick={() => void handleDownload("tailoredResume")}
+            onClick={() => void handleServerPdf("tailoredResume")}
             disabled={exportDisabled}
           >
             Tailored resume only
@@ -236,10 +255,16 @@ export default function ExportPage() {
         </CardContent>
       </Card>
 
+      {pdfError && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800" role="alert">
+          {pdfError}
+        </div>
+      )}
+
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Print preview</CardTitle>
-          <CardDescription>Open the print layout in a new tab.</CardDescription>
+          <CardDescription>Open the print layout in a new tab — use Ctrl+P / Cmd+P → Save as PDF.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-3">
           <Button asChild variant="secondary">

@@ -51,18 +51,25 @@ export async function POST(_request: Request, context: RouteContext) {
     }
   }
 
-  const pdfs = await generatePdfsForRun(id);
+  // Try Playwright-based PDF generation, fallback with clear message
+  let pdfs = null;
+  try {
+    pdfs = await generatePdfsForRun(id);
+  } catch {
+    // Playwright unavailable (Vercel serverless) — client should use print preview
+  }
 
   if (!pdfs) {
     return NextResponse.json(
       {
         error: {
-          code: "NOT_FOUND",
-          message: "Run not found. It may have expired or was created in another session.",
+          code: "PDF_GENERATION_UNAVAILABLE",
+          message:
+            "Server-side PDF generation is not available in this environment. Use the print preview buttons below to save as PDF from your browser (Ctrl+P / Cmd+P → Save as PDF).",
           stage: "api/runs/export",
         },
       },
-      { status: 404 },
+      { status: 501 },
     );
   }
 

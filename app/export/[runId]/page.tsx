@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
@@ -12,6 +13,17 @@ export default function PrintExportPage() {
   const params = useParams<{ runId: string }>();
   const runId = params.runId;
   const { run, loading, error } = useTailoringRun(runId);
+
+  // Auto-trigger browser print dialog when ?print is present
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      if (searchParams.has("print")) {
+        // Small delay to let the page render fully
+        setTimeout(() => window.print(), 500);
+      }
+    }
+  }, []);
 
   if (loading) {
     return (
