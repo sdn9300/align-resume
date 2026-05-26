@@ -50,11 +50,11 @@ export function StepIndicator({ runId }: StepIndicatorProps) {
         const content = (
           <span
             className={cn(
-              "inline-flex items-center gap-2 rounded-full px-3 py-1",
-              isActive && "bg-neutral-900 text-white",
-              !isActive && isComplete && "bg-muted text-foreground",
+              "inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200",
+              isActive && "bg-foreground text-background shadow-sm",
+              !isActive && isComplete && "bg-primary/10 text-primary",
               !isActive && !isComplete && "text-muted-foreground",
-              disabled && "opacity-50",
+              disabled && "opacity-40",
             )}
           >
             <span className="font-medium">{index + 1}.</span>

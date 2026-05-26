@@ -4,33 +4,66 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-10 px-6 py-16">
-      <div className="space-y-4">
-        <p className="text-sm font-medium text-muted-foreground">AlignResume</p>
-        <h1 className="text-4xl font-semibold tracking-tight">
-          Truthful resume tailoring for every job description
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Paste your resume and a real job listing to see match scores, gap analysis, bullet-level
-          rewrites, and a side-by-side comparison — without inventing experience.
-        </p>
-      </div>
+    <>
+      <main id="main-content" className="relative mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-center gap-12 px-6 py-20">
+        <div className="space-y-5 text-center">
+          <p className="inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium tracking-wide text-primary">
+            AI-powered resume tailoring
+          </p>
+          <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
+            Truthful resume tailoring{" "}
+            <span className="text-primary">for every job description</span>
+          </h1>
+          <p className="mx-auto max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground">
+            Paste your resume and a real job listing to see match scores, gap analysis, bullet-level
+            rewrites, and a side-by-side comparison — without inventing experience.
+          </p>
+        </div>
 
-      <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
-        <li className="rounded-lg border border-border/80 bg-white p-4">Explainable match scores (before & after)</li>
-        <li className="rounded-lg border border-border/80 bg-white p-4">Gap analysis with honest suggested actions</li>
-        <li className="rounded-lg border border-border/80 bg-white p-4">Side-by-side bullet review with metadata</li>
-        <li className="rounded-lg border border-border/80 bg-white p-4">Print-ready comparison layout + PDF downloads</li>
-      </ul>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button asChild size="lg" className="h-12 rounded-full px-8 text-base shadow-lg shadow-primary/20">
+            <Link href="/tailor">Start tailoring</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="h-12 rounded-full px-8 text-base">
+            <Link href="/tailor?demo=1">Try with sample data</Link>
+          </Button>
+        </div>
 
-      <div className="flex flex-wrap gap-3">
-        <Button asChild size="lg">
-          <Link href="/tailor">Start tailoring</Link>
-        </Button>
-        <Button asChild variant="outline" size="lg">
-          <Link href="/tailor?demo=1">Try with sample data</Link>
-        </Button>
-      </div>
-    </main>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="group relative overflow-hidden rounded-xl border border-border/60 bg-white/60 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-900/5">
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3 className="mb-1.5 font-semibold">Match scores</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">Explainable match scores before and after tailoring</p>
+          </div>
+          <div className="group relative overflow-hidden rounded-xl border border-border/60 bg-white/60 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-900/5">
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3 className="mb-1.5 font-semibold">Gap analysis</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">Honest suggested actions for missing skills</p>
+          </div>
+          <div className="group relative overflow-hidden rounded-xl border border-border/60 bg-white/60 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-900/5">
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="12" x2="12" y1="8" y2="16"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
+            </div>
+            <h3 className="mb-1.5 font-semibold">Bullet review</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">Side-by-side comparison with metadata</p>
+          </div>
+          <div className="group relative overflow-hidden rounded-xl border border-border/60 bg-white/60 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-900/5">
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            </div>
+            <h3 className="mb-1.5 font-semibold">PDF export</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">Print-ready layout + downloadable PDFs</p>
+          </div>
+        </div>
+      </main>
+
+      <footer className="border-t border-border/40 py-6 text-center text-xs text-muted-foreground">
+        <p>AlignResume — Built with Next.js, Groq LLM, and Playwright</p>
+      </footer>
+    </>
   );
 }

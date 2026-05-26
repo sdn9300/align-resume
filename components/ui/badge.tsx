@@ -7,12 +7,12 @@ type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
 };
 
 const variantClasses: Record<NonNullable<BadgeProps["variant"]>, string> = {
-  default: "bg-neutral-900 text-white",
-  secondary: "bg-muted text-foreground",
-  outline: "border border-input bg-background text-foreground",
-  high: "bg-red-100 text-red-800 border border-red-200",
-  medium: "bg-amber-100 text-amber-900 border border-amber-200",
-  low: "bg-slate-100 text-slate-700 border border-slate-200",
+  default: "bg-foreground text-background",
+  secondary: "bg-primary/10 text-primary border border-primary/20",
+  outline: "border border-border/70 bg-background text-foreground",
+  high: "bg-red-50 text-red-700 border border-red-200",
+  medium: "bg-amber-50 text-amber-800 border border-amber-200",
+  low: "bg-slate-50 text-slate-600 border border-slate-200",
 };
 
 export function Badge({

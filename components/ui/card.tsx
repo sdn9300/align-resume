@@ -6,7 +6,10 @@ export function Card({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("rounded-lg border border-border bg-background shadow-sm", className)}
+      className={cn(
+        "rounded-xl border border-border/70 bg-white/60 shadow-sm transition-all duration-200 hover:shadow-md hover:shadow-amber-900/5",
+        className,
+      )}
       {...props}
     />
   );
@@ -24,7 +27,7 @@ export function CardTitle({
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 className={cn("text-lg font-semibold leading-none tracking-tight", className)} {...props} />
+    <h3 className={cn("text-base font-semibold leading-none tracking-tight", className)} {...props} />
   );
 }
 

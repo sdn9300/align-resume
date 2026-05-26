@@ -12,20 +12,23 @@ export function TailorShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen">
-      <header className="border-b border-border bg-background">
+      <header className="border-b border-border/60 bg-white/70 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6">
           <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="font-semibold tracking-tight">
+            <Link href="/" className="text-lg font-semibold tracking-tight text-primary">
               AlignResume
             </Link>
-            <Link href="/tailor" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link
+              href="/tailor"
+              className="rounded-full border border-border/60 px-4 py-1.5 text-sm text-muted-foreground transition-all hover:border-primary/30 hover:text-foreground"
+            >
               New analysis
             </Link>
           </div>
           <StepIndicator runId={runId} />
         </div>
       </header>
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">{children}</div>
+      <div id="main-content" className="mx-auto max-w-6xl px-4 py-8 sm:px-6">{children}</div>
     </div>
   );
 }
