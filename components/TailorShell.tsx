@@ -16,16 +16,18 @@ export function TailorShell({ children }: { children: React.ReactNode }) {
       <header className="border-b border-[#E6DFD3]/50 bg-white/70 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-3 sm:px-6">
           <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
-              <Image
-                src="/logo.svg"
-                alt="AlignResume"
-                width={28}
-                height={28}
-                className="drop-shadow-sm"
-              />
+            <Link href="/" className="flex items-center transition-opacity hover:opacity-90">
+              <div className="relative mr-0.5 mt-0.5 flex items-center justify-center">
+                <Image
+                  src="/logo.svg"
+                  alt="A"
+                  width={20}
+                  height={20}
+                  className="drop-shadow-sm"
+                />
+              </div>
               <span className="text-base font-bold tracking-tight text-[#4A3E3D]">
-                Align<span className="font-semibold text-[#5C4E43]">Resume</span>
+                lign<span className="font-semibold text-[#5C4E43]">Resume</span>
               </span>
             </Link>
             <Link

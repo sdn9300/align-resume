@@ -6,20 +6,21 @@ export default function Header() {
     <header className="flex w-full justify-center pt-8 pb-4">
       <Link
         href="/"
-        className="group flex items-center gap-3 transition-opacity duration-200 hover:opacity-95"
+        className="group flex items-center transition-opacity duration-200 hover:opacity-95"
       >
-        <div className="relative flex h-11 w-11 items-center justify-center">
+        {/* Logo acts as the letter "A" */}
+        <div className="relative mr-0.5 mt-1 flex items-center justify-center">
           <Image
             src="/logo.svg"
-            alt="AlignResume Logo"
-            width={44}
-            height={44}
+            alt="A"
+            width={34}
+            height={34}
             className="object-contain drop-shadow-sm"
             priority
           />
         </div>
         <span className="text-2xl font-bold tracking-tight text-[#4A3E3D] sm:text-3xl">
-          Align<span className="font-semibold text-[#5C4E43]">Resume</span>
+          lign<span className="font-semibold text-[#5C4E43]">Resume</span>
         </span>
       </Link>
     </header>
