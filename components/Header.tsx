@@ -3,23 +3,25 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex w-full justify-center pt-8 pb-4">
-      <Link
-        href="/"
-        className="group flex items-center transition-opacity duration-200 hover:opacity-95"
+    <header className="w-full flex justify-center pt-8 pb-4">
+      <Link 
+        href="/" 
+        className="flex items-center group hover:opacity-95 transition-opacity duration-200"
       >
-        {/* Logo acts as the letter "A" */}
-        <div className="relative -mr-1.5 mt-1 flex items-center justify-center">
+        {/* Logo Container with precision optical alignment */}
+        <div className="relative flex items-center justify-center mr-[3px] -translate-y-[1px]">
           <Image
-            src="/logo.png"
+            src="/logo.png" 
             alt="A"
-            width={51}
-            height={51}
-            className="object-contain drop-shadow-sm"
+            width={32}  // Slightly adjusted for perfect letter height matching
+            height={32}
+            className="object-contain drop-shadow-[0_2px_4px_rgba(163,127,51,0.15)]"
             priority
           />
         </div>
-        <span className="text-2xl font-bold tracking-tight text-[#4A3E3D] sm:text-3xl">
+
+        {/* Brand Text */}
+        <span className="text-2xl font-bold tracking-tight text-[#4A3E3D] sm:text-3xl select-none">
           lign<span className="font-semibold text-[#5C4E43]">Resume</span>
         </span>
       </Link>
