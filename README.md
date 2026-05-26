@@ -175,8 +175,6 @@ Prompts are engineered to return strict JSON — no free-form prose — making t
 
 **Soumyadeep Nath**
 
-Executive PG Programme — Data Science & AI, IIT Roorkee
-
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-soumyadeep--nath-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/soumyadeep-nath-941780250)
 
 [![GitHub](https://img.shields.io/badge/GitHub-sdn9300-black?style=flat-square&logo=github)](https://github.com/sdn9300)
