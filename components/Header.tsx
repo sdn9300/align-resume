@@ -9,12 +9,12 @@ export default function Header() {
         className="group flex items-center transition-opacity duration-200 hover:opacity-95"
       >
         {/* Logo acts as the letter "A" */}
-        <div className="relative mr-0.5 mt-1 flex items-center justify-center">
+        <div className="relative -mr-1.5 mt-1 flex items-center justify-center">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="A"
-            width={34}
-            height={34}
+            width={51}
+            height={51}
             className="object-contain drop-shadow-sm"
             priority
           />

@@ -17,12 +17,12 @@ export function TailorShell({ children }: { children: React.ReactNode }) {
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-3 sm:px-6">
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center transition-opacity hover:opacity-90">
-              <div className="relative mr-0.5 mt-0.5 flex items-center justify-center">
+              <div className="relative -mr-0.5 mt-0.5 flex items-center justify-center">
                 <Image
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt="A"
-                  width={20}
-                  height={20}
+                  width={24}
+                  height={24}
                   className="drop-shadow-sm"
                 />
               </div>
