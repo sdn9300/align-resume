@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+import { createMockTailoringRun } from "@/lib/mock-run";
 import { runPipeline } from "@/lib/pipeline";
 import { storeServerRun } from "@/lib/run-storage";
 
@@ -68,6 +69,22 @@ export async function POST(request: Request) {
       resumeText: parsed.data.resume.content,
       jdText: parsed.data.jobDescription.content,
     });
+
+    // If the pipeline failed (e.g. Groq API blocked on this network),
+    // fall back to pre-generated mock data so the UI is still explorable.
+    if (run.status === "failed") {
+      const errorMsg = run.errors?.join("; ") ?? "Unknown pipeline error";
+      console.warn(
+        "[API/runs] Pipeline failed (" + errorMsg + "), falling back to mock data.",
+      );
+      const mockRun = createMockTailoringRun(
+        parsed.data.resume.content,
+        parsed.data.jobDescription.content,
+      );
+      storeServerRun(mockRun);
+      return NextResponse.json(mockRun);
+    }
+
     storeServerRun(run);
     return NextResponse.json(run);
   } catch (err) {

@@ -3,6 +3,9 @@ import { NextResponse } from "next/server";
 import { generatePdfsForRun } from "@/lib/pdf";
 import { getServerRun } from "@/lib/run-storage";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+const logger = (msg: string, ...args: any[]) => console.error(`[PDF-EXPORT] ${msg}`, ...args);
+
 type RouteContext = {
   params: Promise<{ id: string }>;
 };
@@ -55,8 +58,9 @@ export async function POST(_request: Request, context: RouteContext) {
   let pdfs = null;
   try {
     pdfs = await generatePdfsForRun(id);
-  } catch {
-    // Playwright unavailable (Vercel serverless) — client should use print preview
+  } catch (e) {
+    // Log the actual error for debugging
+    logger("PDF generation failed:", e instanceof Error ? e.message : String(e));
   }
 
   if (!pdfs) {

@@ -7,10 +7,14 @@ function getBaseUrl(): string {
 }
 
 async function generatePdfFromUrl(url: string): Promise<Buffer> {
-  const browser = await chromium.launch({ headless: true });
+  // --no-sandbox is required on Windows and CI environments
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   try {
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "networkidle" });
+    await page.goto(url, { waitUntil: "networkidle", timeout: 15000 });
     const pdf = await page.pdf({
       format: "A4",
       printBackground: true,

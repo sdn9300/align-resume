@@ -13,7 +13,7 @@ export default function Header() {
           <Image
             src="/logo.png" 
             alt="A"
-            width={32}  // Slightly adjusted for perfect letter height matching
+            width={32}
             height={32}
             className="object-contain drop-shadow-[0_2px_4px_rgba(163,127,51,0.15)]"
             priority
