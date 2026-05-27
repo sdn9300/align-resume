@@ -144,7 +144,7 @@ export default function ExportPage() {
           </Button>
           <Button asChild variant="secondary">
             <Link href={`/export/${runId}/resume`} target="_blank">
-              Print tailored resume layout
+              Print Tailored Resume Layout
             </Link>
           </Button>
         </CardContent>
