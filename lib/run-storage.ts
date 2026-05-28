@@ -3,15 +3,16 @@ import { tailoringRunSchema, type TailoringRun } from "@/lib/schemas";
 const STORAGE_PREFIX = "tailor-run:";
 
 // ---------------------------------------------------------------------------
-// Client-side sessionStorage helpers (used in browser)
+// Client-side localStorage helpers (used in browser)
+// Shared across tabs so print pages can load run data.
 // ---------------------------------------------------------------------------
 
-export function isSessionStorageAvailable(): boolean {
+export function isStorageAvailable(): boolean {
   if (typeof window === "undefined") return false;
   try {
     const key = "__storage_test__";
-    window.sessionStorage.setItem(key, key);
-    window.sessionStorage.removeItem(key);
+    window.localStorage.setItem(key, key);
+    window.localStorage.removeItem(key);
     return true;
   } catch {
     return false;
@@ -19,13 +20,17 @@ export function isSessionStorageAvailable(): boolean {
 }
 
 export function saveTailoringRun(run: TailoringRun): void {
-  if (!isSessionStorageAvailable()) return;
-  window.sessionStorage.setItem(`${STORAGE_PREFIX}${run.id}`, JSON.stringify(run));
+  if (!isStorageAvailable()) return;
+  try {
+    window.localStorage.setItem(`${STORAGE_PREFIX}${run.id}`, JSON.stringify(run));
+  } catch {
+    // localStorage might be full — silently ignore
+  }
 }
 
 export function loadTailoringRun(runId: string): TailoringRun | null {
-  if (!isSessionStorageAvailable()) return null;
-  const raw = window.sessionStorage.getItem(`${STORAGE_PREFIX}${runId}`);
+  if (!isStorageAvailable()) return null;
+  const raw = window.localStorage.getItem(`${STORAGE_PREFIX}${runId}`);
   if (!raw) return null;
 
   try {
