@@ -61,7 +61,7 @@ export default function GeometricBackground() {
 
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(163, 127, 51, 0.1)'; // Soft gold nodes
+        ctx.fillStyle = 'rgba(163, 127, 51, 0.25)'; // Soft gold nodes
         ctx.fill();
       });
 
@@ -74,12 +74,12 @@ export default function GeometricBackground() {
 
           if (distance < MAX_DISTANCE) {
             // Lines fade out beautifully as points drift apart
-            const alpha = (1 - distance / MAX_DISTANCE) * 0.12;
+            const alpha = (1 - distance / MAX_DISTANCE) * 0.25;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.strokeStyle = `rgba(163, 127, 51, ${alpha})`; // Golden lines matching mockups
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 1.2;
             ctx.stroke();
           }
         }

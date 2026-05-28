@@ -16,6 +16,12 @@ export default function Home() {
       <div className="relative z-10">
         <Header />
 
+        {/* Tagline */}
+        <p className="-mt-5 text-center text-sm tracking-wide">
+          <span className="text-[#1E1E1E]">Tailor Smarter.</span>{" "}
+          <span className="text-[#A37F33]">Apply Better.</span>
+        </p>
+
         <main className="mx-auto max-w-4xl px-4 pb-24 pt-12 text-center">
           <div className="space-y-6">
             <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-[1.15] tracking-tight text-[#111111] sm:text-6xl">
